@@ -1,2 +1,2 @@
-<% page_uri = app.spree_path == '/' ? page.slug : app.spree_path + page.slug %>
+<% page_uri = Rails.application.spree_path == '/' ? page.slug : Rails.application.spree_path + page.slug %>
 <li class=<%=(request.fullpath.gsub('//','/') == page_uri) ? 'current' : 'not'%>><%= link_to page.title, page_uri  %></li>
