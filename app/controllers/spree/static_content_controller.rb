@@ -1,12 +1,11 @@
 class Spree::StaticContentController < Spree::BaseController
   caches_action :show, :cache_path => Proc.new { |controller|
     "spree_static_content/" + controller.params[:path]
-  } if Rails.env.production?
+  }
   
   layout :determine_layout
   
   def show
-    logger.debug params[:path]
     path = case params[:path]
     when Array
       '/' + params[:path].join("/")
