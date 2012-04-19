@@ -6,7 +6,7 @@ class Spree::StaticContentController < Spree::BaseController
   layout :determine_layout
   
   def show
-    logger.info params[:path]
+    logger.debug params[:path]
     path = case params[:path]
     when Array
       '/' + params[:path].join("/")
